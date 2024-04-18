@@ -6,13 +6,20 @@ class Program
 {
     static void Main(string[] args)
     {
+        int userNum;
         Console.WriteLine("Quanti numeri vuoi inserire nell'array?");
-        int userNum = Convert.ToInt32(Console.ReadLine());
+        while (int.TryParse(Console.ReadLine(), out userNum) == false)
+        {
+            Console.WriteLine("Sintassi errata. Insrisci un numero");
+        }
         int[] array = new int[userNum];
         for(int i = 0; i < array.Length; i++)
         {
             Console.WriteLine($"Inserisci i numeri: {i + 1}/{array.Length}");
-            array[i] = Convert.ToInt32(Console.ReadLine());
+            while (int.TryParse(Console.ReadLine(), out array[i]) == false)
+            {
+                Console.WriteLine($"Sintassi errata. Insrisci un numero: {i + 1}/{array.Length}");
+            }
         }
 
         Console.WriteLine("Array di numeri fornito: ");
