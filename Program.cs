@@ -28,41 +28,43 @@ class Program
 
         Console.WriteLine($"Somma di tutti i numeri dell'array elevati al quadrato: {sommaElementiArray(ElevaArrayAlQuadrato(array))}");
 
-        
-    }
-    static void StampaArray(int[] array)
-    {
-        Console.Write("[");
-        for(int i = 0; i <array.Length; i++)
+        void StampaArray(int[] array)
         {
-            Console.Write(array[i]);
-            if (i < array.Length - 1)
-                Console.Write(", ");
+            Console.Write("[");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+                if (i < array.Length - 1)
+                    Console.Write(", ");
+            }
+            Console.WriteLine("]");
         }
-        Console.WriteLine("]");
-    }
-    static int Quadrato(int numero)
-    {
-        int numQuadrato = numero * numero;
-        return numQuadrato;
-    }
-    static int[] ElevaArrayAlQuadrato(int[] array)
-    {
-        int[] newArray = new int[array.Length];
-        for(int i = 0; i < array.Length; i++)
+
+        int Quadrato(int numero)
         {
-            newArray[i] = Quadrato(array[i]);
+            int numQuadrato = numero * numero;
+            return numQuadrato;
         }
-        return newArray;
-    }
-    static int sommaElementiArray(int[] array)
-    {
-        int sum = 0;
-        for(int i = 0; i < array.Length; i++)
+
+        int[] ElevaArrayAlQuadrato(int[] array)
         {
-            sum += array[i];
+            int[] newArray = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                newArray[i] = Quadrato(array[i]);
+            }
+            return newArray;
         }
-        return sum;
+
+        int sommaElementiArray(int[] array)
+        {
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            return sum;
+        }
     }
 }
 
